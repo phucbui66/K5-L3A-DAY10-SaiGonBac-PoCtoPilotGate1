@@ -7,7 +7,7 @@
 - Repo của bàn: `K5-L3A-DAY10-SaiGonBac-PoCtoPilotGate1`
 - Hình thức thực hiện: **bài nhóm — nhóm có 1 thành viên**.
 - Danh tính Git cho repo: `2A202603572` / `2A202603572@example.com`, theo hướng dẫn dùng MSSV và email giả.
-- Thẻ sự cố thực hiện: **S7**, học viên yêu cầu chọn và tải thẻ này cho vòng 2.
+- Thẻ sự cố thực hiện: **S7**
 
 ## Thành viên
 
