@@ -1,8 +1,8 @@
 # Phiếu A · Tiêu chí và cách đo · Khối 1 (phút 15–65)
 
-**Bàn:** SaiGonBac · **Người cầm bút chính:** vai Sản phẩm và kinh doanh (câu 1.3: Kỹ sư cổng; câu 1.2, 1.4: Vận hành và pháp lý). Nhóm bổ sung tên thật trong TEAM.md.
+**Nhóm:** SaiGonBac, có 1 thành viên · **Người thực hiện:** Bùi Hữu Phúc — MSSV 2A202603572, trưởng nhóm và đảm nhiệm cả ba vai Sản phẩm và kinh doanh, Kỹ sư cổng, Vận hành và pháp lý.
 
-**Nguồn và giới hạn:** dùng đề Day 10, code và dữ liệu giả của LogiX. Chưa nhận eval card và PRD v1.1 Lab 9; mục tiêu dưới đây là đề xuất cần đối chiếu §2, §3, §6 của PRD, không khẳng định đã đọc tài liệu đó. Tiêu chí được chọn trước khi chạy `lab10.eval`.
+**Nguồn và thời điểm:** tiêu chí dưới đây được soạn từ đề Day 10, code và dữ liệu giả của LogiX, ký trước lần chạy `lab10.eval` đầu tiên. Sau khi chốt v1, Phúc cung cấp repo Lab 9; đã đối chiếu bổ sung [PRD v1.1](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/PRD_v1.1.md) và [eval card](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/eval_card.md), chi tiết ở cuối phiếu. PRD này dùng tiêu đề theo tên mục, không có đánh số §2/§3/§6 như gợi ý của đề Day 10. Việc đối chiếu không thay đổi file tiêu chí đã ký.
 
 Điền phiếu này **trước khi chạy trợ lý lần nào**. Viết xong thì chép ngưỡng sang `config/acceptance_criteria.json`, ký ở phút 60–65,
 rồi mới chạy đánh giá. Khối 1 không sửa code.
@@ -156,3 +156,20 @@ git add config/acceptance_criteria.json config/acceptance_criteria.lock && git c
 | Đã push lên `origin main` thành công? | **Có**; push `13ea24f..791cf48` thành công trước baseline `R-base-before-20261118-233821-bde05c` lúc 23:38:21. |
 
 Sau bước này **không sửa** `config/acceptance_criteria.json`, kể cả mở rồi lưu lại bằng trình soạn thảo tự định dạng.
+
+---
+
+## Đối chiếu Lab 9 · Bổ sung sau khi chốt v1
+
+Nguồn của chính Bùi Hữu Phúc tại revision `70e5dd63c4fedfb861b3621f592eb415352298ca`: [PRD v1.1](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/PRD_v1.1.md), [eval card](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/eval_card.md), [trace C-002@11](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/trace_case.md). Đã đối chiếu các số chính với JSON report có sẵn trong repo nguồn; không chạy lại hay sửa Lab 9 trong lần bổ sung này.
+
+| Nguồn Lab 9 | Liên hệ với Phiếu A và vòng 1 Day 10 |
+|---|---|
+| PRD, “Phạm vi”: principal hợp lệ, approval còn hạn, tiền theo policy/host; chỉ pilot offline. | A1 kế thừa mục tiêu xử lý hoàn tiền đúng căn cứ ở cấp hệ thống; G1 kiểm chủ đơn, quyền lợi, phê duyệt và ledger trước write. Quyết định v1 Day 10 vẫn là mô phỏng có giám sát, chưa phê duyệt triển khai với người dùng thật. |
+| PRD, “Chạy đúng nghĩa là gì”: kiểm số tiền, quyền duyệt, secret và reply–ledger; gate không chỉ dựa câu trả lời model. | A2 tách metric bước ghi lỗi hãng với telemetry cho bên thứ ba. A4 giữ an toàn bằng 0, bổ sung tác động lỗi hãng/PII, chi phí và sức trực của Day 10; không dùng chất lượng lời văn thay đúng giao dịch. |
+| PRD, “Cổng release và trách nhiệm”: Bùi Hữu Phúc là eval owner; gate đỏ thì không merge, phải xử lý nguyên nhân. | Một mình Phúc phụ trách ba vai của bài học. Tùng/Hạnh/Oanh vẫn là các PIC giả theo tình huống Day 10; không ghi họ thành thành viên học tập. |
+| Eval card v1: 14 item × 5 seed, baseline pass_rate 0,9857, pass_5 0,9286; fixed đạt 1,0/1,0. | Đây là bộ Lab 9, khác bộ Day 10 gồm 22 ticket × 5 seed. Không cộng hai mẫu, không lấy số Lab 9 làm kết quả Day 10 và không nới các ngưỡng Day 10 đã ký 0,99/0,95. |
+| Eval card v2: flaky_regression có pass@5 = 1,0 nhưng pass^5 = 0,5714. | Củng cố cách phân biệt ở A4: ít nhất một lần đúng không đảm bảo ổn định cả năm seed. Bản Day 10 phải tiếp tục đo pass_k, không thay bằng pass@k. |
+| Eval card/PRD: MockLLM, ít item, chưa có held-out người thật; cost_per_success là chi phí mô phỏng. | Không so trực tiếp cost_per_success Lab 9 với chi phí VND/ticket Day 10. A3 không suy “đã chứng minh tốt hơn” từ chênh lệch nhỏ; ngưỡng đạt trên bộ nền không chứng minh mức an toàn production. |
+
+Chị Oanh và chị Hạnh trong A1 được lấy từ `data/world.json` của **Day 10** để mở rộng mục tiêu đối soát và sức trực; PRD Lab 9 không có mô tả riêng hai nhân vật này. Đối chiếu nguồn là bổ sung hồ sơ sau v1, không được diễn giải thành việc đã đọc Lab 9 trước lúc ký tiêu chí.

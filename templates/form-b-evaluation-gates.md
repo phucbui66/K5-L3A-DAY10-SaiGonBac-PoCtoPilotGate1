@@ -1,6 +1,6 @@
 # Phiếu B · Đo, rủi ro, cổng vòng 1 và quyết định v1 · Khối 2A + 2B + chốt (phút 65–115)
 
-**Bàn:** SaiGonBac · Người tổng hợp bản làm việc: Bùi Hữu Phúc, MSSV 2A202603572 (có hỗ trợ AI, xem TEAM.md).
+**Nhóm:** SaiGonBac, có 1 thành viên · **Trưởng nhóm và người thực hiện:** Bùi Hữu Phúc, MSSV 2A202603572, đảm nhiệm cả ba vai và tổng hợp toàn bộ vòng 1 (có hỗ trợ AI, xem TEAM.md).
 
 **Giới hạn phạm vi:** hoàn thành vòng 1; không nhận thẻ, không chạy gói sự cố, không viết Phiếu C/v2. Các PIC Hạnh/Tùng/Oanh dưới đây là nhân vật giả trong `data/world.json`, khác với thành viên học tập. Tên kênh trực là đề xuất cho tình huống, chưa phải kênh đã được tạo ngoài đời.
 
@@ -264,7 +264,7 @@ Bốn lăng kính (bắt buộc đủ cả bốn; dự án AI hay chết ở ba 
 | Người nhận quà đã bị lộ liên hệ qua thông báo hãng, còn shop bị yêu cầu trả tiền theo chữ khách gõ. | Pháp lý | Đường notify_carrier thêm customer_note/recipient_contact; orders.is_gift, B4 PERTURBED. | **Chọn:** G3 dựng payload chỉ từ DB và danh sách policy; legal bỏ PII. |
 | Sổ đã bị ghi hai lần khi confirm lỗi; hoặc hoàn tay và tự động chạy đồng thời. | Kỹ thuật / vận hành | Agent có write_retry, ledger là nguồn thật; hiện chưa mô phỏng ghi đồng thời. | G1 giảm retry trùng trong luồng tuần tự; tính nguyên tử và khóa/idempotency ở kho dữ liệu thật còn phải kiểm chứng sau, chưa coi đã xử lý xong. |
 
-Ba nhóm ưu tiên là (1) đúng căn cứ và đối tượng ghi tiền/lỗi hãng, (2) giới hạn ngân sách và năng lực người, (3) dữ liệu bên thứ ba. Bảng này do AI hỗ trợ tổng hợp từ đề và code, không khẳng định cả nhóm đã thực hiện đủ buổi thảo luận im lặng/vòng tròn.
+Ba nhóm ưu tiên là (1) đúng căn cứ và đối tượng ghi tiền/lỗi hãng, (2) giới hạn ngân sách và năng lực người, (3) dữ liệu bên thứ ba. Bảng này được tổng hợp cho nhóm một thành viên với AI hỗ trợ; Phúc chịu trách nhiệm rà soát lần lượt theo ba vai, dùng đủ bốn lăng kính của pre-mortem.
 
 ---
 
@@ -444,3 +444,15 @@ git add lab10/guards.py lab10/guards_round1.py config/operating_gates.json confi
 git commit -m "LAB 10: chốt cổng vòng 1, quyết định v1"
 git push -u origin main
 ```
+
+---
+
+## Bổ sung nguồn Lab 9 sau khi chốt v1
+
+Phúc xác nhận đây là bài nhóm, nhóm SaiGonBac chỉ có một thành viên, và cung cấp repo Lab 9 sau commit chốt v1 `7d35cd9`. Bổ sung này cập nhật thông tin nhóm và đối chiếu nguồn; giữ nguyên B0, số đo, quyết định ở B8, tiêu chí hash `990a6337` và snapshot hash `9697b4e6`. Những chỗ “chưa đối chiếu PRD Lab 9” tại checklist B5 và bằng chứng còn thiếu B8 ghi lại trạng thái ở thời điểm chốt v1; mục tài liệu đó nay đã được bổ sung bằng các nguồn sau.
+
+- [PRD v1.1 của Phúc](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/PRD_v1.1.md): kế thừa yêu cầu đúng principal, approval, policy, ledger; không có phê duyệt pilot người dùng thật. Trách nhiệm học tập là của Phúc; ba PIC vận hành trong B7 là nhân vật của bài Day 10.
+- [Eval card](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/eval_card.md): baseline v1 `E-swarm-20261117-ec06`, fixed `E-fixed-20261117-ec06`; số liệu thuộc bộ Lab 9, không thay cho các run ID Day 10 ở B0. Tính ổn định qua pass^5, kiểm phân khúc và bảo vệ ngưỡng là kinh nghiệm kế thừa.
+- [Trace case C-002@11](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/trace_case.md): cùng cơ chế lời khai 5 ngày đè tracking 2 ngày làm hoàn sai 20.000đ. Đây là trial Lab 9 khác `T-002@55` ở B2. Có approval hợp lệ vẫn chưa chứng minh khoản hoàn đúng quyền lợi; G1 vì thế kiểm cả căn cứ nghiệp vụ lẫn quyền duyệt, G2 kiểm riêng lỗi hãng để bảo vệ bên thứ ba.
+
+Không đọc gói sự cố hay làm Phiếu C trong lần bổ sung tài liệu này. Các bằng chứng còn thiếu về tải dồn, ghi đồng thời, drift, model/người dùng thật và test chưa thấy vẫn chưa được giải quyết bằng việc đọc Lab 9.

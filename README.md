@@ -1,5 +1,9 @@
 # LAB 10 · From PoC to Pilot (Gate 1)
 
+> **Nhóm thực hiện tại repo này:** **SaiGonBac có 1 thành viên**, Bùi Hữu Phúc — MSSV **2A202603572**, lớp **L3A**. Phúc là trưởng nhóm và đảm nhiệm cả ba vai: Kỹ sư cổng, Sản phẩm và kinh doanh, Vận hành và pháp lý. Chi tiết đóng góp và hỗ trợ AI: [TEAM.md](TEAM.md).
+>
+> **Phạm vi hiện tại:** Phiếu A, Phiếu B, cổng vòng 1 và quyết định v1; dừng trước phần **Thẻ sự cố**. Nguồn nối tiếp Lab 9: [PRD v1.1](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/PRD_v1.1.md) và [eval card](https://github.com/phucbui66/K5-L3A-Day9-BuiHuuPhuc-2A202603572-Evaluation-and-Failure-Analysis/blob/70e5dd63c4fedfb861b3621f592eb415352298ca/docs/eval_card.md). Hai nguồn được đối chiếu bổ sung sau khi đã chốt v1; tiêu chí đã ký và bản chụp cổng vòng 1 được giữ nguyên.
+
 > **Bài nhóm** (một bàn 3–4 người, một repo chung). **Mỗi thành viên tự nộp link repo của bàn trên LMS** trước deadline (GMT+7): lab sáng 23h59 cùng ngày, lab chiều/tối 11h59 hôm sau. Chi tiết: [`SUBMISSION.md`](SUBMISSION.md).
 >
 > Nộp gì, khi nào: [`SUBMISSION.md`](SUBMISSION.md) · Chấm thế nào: [`RUBRIC.md`](RUBRIC.md) · Các mốc tự kiểm tra: [`CHECKPOINTS.md`](CHECKPOINTS.md) · Luật chung (AI, liêm chính, nộp muộn): [`RULES.md`](RULES.md) · Thành viên: [`TEAM.md`](TEAM.md).
