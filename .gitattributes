@@ -1,0 +1,11 @@
+# Locked source/data bytes in MANIFEST.json use LF on every platform.
+* text=auto eol=lf
+
+# Preserve bytes already sealed by the Windows criteria/round1 commands.
+# These files must check out with CRLF even when a grader uses Linux.
+config/acceptance_criteria.json text eol=crlf
+lab10/guards.py text eol=crlf
+lab10/guards_round1.py text eol=crlf
+lab10/monitors.py text eol=crlf
+config/operating_gates.json text eol=crlf
+config/operating_gates.round1.json text eol=crlf

@@ -1,24 +1,31 @@
 {
   "_huong_dan": "Cổng kinh doanh, vận hành, pháp lý mà trợ lý PHẢI tuân theo. Bàn điền ở vòng 1, chốt bằng python3 -m lab10.checkpoint, rồi được sửa tiếp ở vòng 2. null = chưa đặt cổng này. Giải thích từng dòng: docs/guide.md, mục Cổng trong config (#ban-do).",
   "business": {
-    "daily_refund_cap_vnd": null,
-    "cost_budget_per_ticket_vnd": null,
-    "pilot_scope": {"mode": "all", "warehouses": [], "percent": 100},
-    "roi_min": null
+    "daily_refund_cap_vnd": 2000000,
+    "cost_budget_per_ticket_vnd": 1500,
+    "pilot_scope": {"mode": "warehouse", "warehouses": ["HN", "HCM"], "percent": 100},
+    "roi_min": 0.25
   },
   "operations": {
-    "pic": "",
-    "approver_id": "",
+    "pic": "NV-TUNG",
+    "approver_id": "NV-HANH",
     "reviewers_on_shift": 1,
-    "review_capacity_per_hour": null,
-    "max_queue_wait_minutes": null,
-    "stop_conditions": [],
-    "alert_channel": "",
-    "decision_note": false,
-    "review_sampling_pct": 0
+    "review_capacity_per_hour": 6,
+    "max_queue_wait_minutes": 45,
+    "stop_conditions": [
+      "Có hoàn sai, lỗi hãng oan hoặc lộ PII: NV-TUNG tắt thao tác ghi liên quan trong tối đa 5 phút, NV-HANH nhận ticket.",
+      "Có từ hai chỉ số an toàn vi phạm hoặc vi phạm tái diễn sau một vòng sửa: NV-TUNG tắt toàn bộ thao tác ghi trong tối đa 5 phút.",
+      "Chờ duyệt vượt 45 phút hoặc có 1 ca bị ùn: NV-HANH báo NV-TUNG thu hẹp phạm vi hoặc tắt hoàn tự động trong tối đa 5 phút.",
+      "Chi phí mỗi ticket vượt 8.000đ hoặc ROI dưới 0,25: hoãn mở rộng, đối soát và đo lại; sau thu hẹp vẫn trên 10.000đ/ticket thì dừng.",
+      "Tổng hoàn tự động đạt 2.000.000đ/ngày: chuyển các khoản tiếp theo cho NV-HANH; không tự nâng trần.",
+      "Từ lỗi hãng thứ 3 cho cùng hãng hoặc hoàn tự động cho cùng khách vượt 300.000đ/ngày: người trực chặn thao tác liên quan và yêu cầu NV-HANH duyệt; vòng 1 chưa có cổng code tổng hợp hai giới hạn này."
+    ],
+    "alert_channel": "Kênh trực nội bộ LogiX #pilot-gate1 (đề xuất trong mô phỏng; NV-TUNG tiếp nhận)",
+    "decision_note": true,
+    "review_sampling_pct": 20
   },
   "legal": {
-    "pii_fields_blocked_to_third_party": [],
-    "carrier_fault_requires_recorded_cause": false
+    "pii_fields_blocked_to_third_party": ["customer_note", "recipient_contact", "name", "phone", "street"],
+    "carrier_fault_requires_recorded_cause": true
   }
 }
