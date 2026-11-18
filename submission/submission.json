@@ -1,12 +1,14 @@
 {
   "team": "K5-L3A-DAY10-SaiGonBac-PoCtoPilotGate1",
-  "members": ["BuiHuuPhuc-2A202603572"],
-  "incident": "",
+  "members": [
+    "BuiHuuPhuc-2A202603572"
+  ],
+  "incident": "S7",
   "decision_v1": "Tiếp tục",
-  "decision_v2": "",
+  "decision_v2": "Cải tiến thêm",
   "three_lines": {
-    "environment_assumption": "",
-    "reduce_or_prevent": "",
-    "measure_in_pilot": ""
+    "environment_assumption": "Giả định môi trường là nguồn DB giữ district đúng cấp quận/huyện và hãng chỉ dùng dữ liệu theo mục đích đã thỏa thuận; nhập sai trường hoặc ghép thêm dữ liệu có thể làm giả định này sai.",
+    "reduce_or_prevent": "Gate dựng payload mới từ bốn trường kiểm chứng ngăn hai đường lộ customer_note và recipient_contact qua notify_carrier khi mọi lệnh đi qua gate; monitor và runbook chỉ giảm khả năng, thời gian và tác động của lỗi ở kênh khác hoặc dữ liệu nguồn sai.",
+    "measure_in_pilot": "Trước Bước đánh giá 2 cần đo lại PII và phản ánh người nhận, tính đúng nghĩa của dữ liệu nguồn, độ phủ và chất lượng theo kho, tải và thời gian chờ người duyệt, chi phí và ROI thật, mất telemetry và thời gian dừng/khôi phục trên dữ liệu được phép sử dụng."
   }
 }

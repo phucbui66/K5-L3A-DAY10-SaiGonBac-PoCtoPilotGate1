@@ -118,6 +118,12 @@ def write_gate(ctx, action):
         facts = {"order_id": order["order_id"], "parcel_id": parcel["parcel_id"],
                  "district": order["recipient"]["district"], "delay_days": delay}
         payload = {key: facts[key] for key in policy["carrier_notice_fields"] if key in facts}
+        proposed = action.get("payload") or {}
+        # Record the blocked path, never the contact value or free-form field names.
+        ctx.log("carrier_notice_minimized",
+                recipient_contact_removed="recipient_contact" in proposed,
+                customer_note_removed="customer_note" in proposed,
+                unexpected_fields_count=len(set(proposed) - set(payload)))
         return Verdict.modify("chỉ gửi trường được policy cho phép từ DB",
                               carrier_id=parcel["carrier_id"], payload=payload)
     return Verdict.allow()
